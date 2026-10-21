@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Withdraw Money
+{% endblock title %}
+
+{% block operation_title %}
+<h2 class="fw-bold">Withdraw Money</h2>
+{% endblock operation_title %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6 col-lg-5">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <h5 class="card-title mb-4">
+                    Enter Withdrawal Amount
+                </h5>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit"
+                                class="btn btn-danger">
+                            Withdraw Money
+                        </button>
+                    </div>
+
+                </form>
+
+                <div class="text-center mt-3">
+                    <a href="{% url 'dashboard' %}"
+                       class="text-decoration-none">
+                        ← Back to Dashboard
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Transfer Money
+{% endblock title %}
+
+{% block operation_title %}
+<h2 class="fw-bold">Transfer Money</h2>
+{% endblock operation_title %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-7 col-lg-6">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <h5 class="card-title mb-4">
+                    Transfer Money
+                </h5>
+
+                <p class="text-muted">
+                    Enter the receiver's account number and
+                    the amount you want to transfer.
+                </p>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit"
+                                class="btn btn-primary">
+                            Transfer Money
+                        </button>
+                    </div>
+
+                </form>
+
+                <div class="text-center mt-3">
+                    <a href="{% url 'dashboard' %}"
+                       class="text-decoration-none">
+                        ← Back to Dashboard
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Account
+{% endblock title %}
+
+{% block operation_title %}
+<h2 class="fw-bold text-center">Create ATM Account</h2>
+{% endblock operation_title %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-7 col-lg-6">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <h5 class="text-center mb-4">
+                    Register New Account
+                </h5>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit"
+                                class="btn btn-success">
+                            Create Account
+                        </button>
+                    </div>
+
+                </form>
+
+                <div class="text-center mt-3">
+
+                    <p class="mb-1">
+                        Already have an account?
+                    </p>
+
+                    <a href="{% url 'login' %}"
+                       class="text-decoration-none">
+                        Login
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

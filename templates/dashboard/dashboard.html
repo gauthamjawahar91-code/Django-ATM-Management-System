@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard
+{% endblock title %}
+
+{% block operation_title %}
+<h2 class="fw-bold">Dashboard</h2>
+{% endblock operation_title %}
+
+{% block content %}
+
+<!-- Welcome Card -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h4 class="card-title">
+            Welcome, {{ account_details.name }} 👋
+        </h4>
+
+        <p class="text-muted mb-0">
+            Manage your ATM account from here.
+        </p>
+    </div>
+</div>
+
+
+<!-- Account Information -->
+<div class="row g-4 mb-4">
+
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Account Number</h6>
+
+                <h4 class="fw-bold">
+                    {{ account_details.account_no }}
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Available Balance</h6>
+
+                <h4 class="fw-bold text-success">
+                    ₹{{ account_details.balance }}
+                </h4>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ATM Operations -->
+<h4 class="fw-bold mb-3">ATM Operations</h4>
+
+<div class="row g-3">
+
+    <!-- Deposit -->
+    <div class="col-md-4 col-sm-6">
+        <a href="{% url 'deposit' %}"
+           class="btn btn-success w-100 py-3">
+            💰 Deposit
+        </a>
+    </div>
+
+
+    <!-- Withdraw -->
+    <div class="col-md-4 col-sm-6">
+        <a href="{% url 'withdraw' %}"
+           class="btn btn-danger w-100 py-3">
+            💵 Withdraw
+        </a>
+    </div>
+
+
+    <!-- Transfer -->
+    <div class="col-md-4 col-sm-6">
+        <a href="{% url 'transfer' %}"
+           class="btn btn-primary w-100 py-3">
+            💸 Transfer Money
+        </a>
+    </div>
+
+
+    <!-- Statement -->
+    <div class="col-md-4 col-sm-6">
+        <a href="{% url 'statement' %}"
+           class="btn btn-dark w-100 py-3">
+            📄 Account Statement
+        </a>
+    </div>
+
+
+    <!-- Mini Statement -->
+    <div class="col-md-4 col-sm-6">
+        <a href="{% url 'mini_statement' %}"
+           class="btn btn-secondary w-100 py-3">
+            📋 Mini Statement
+        </a>
+    </div>
+
+
+    <!-- Change PIN -->
+    <div class="col-md-4 col-sm-6">
+        <a href="{% url 'change_pin' %}"
+           class="btn btn-warning w-100 py-3">
+            🔐 Change PIN
+        </a>
+    </div>
+
+</div>
+
+{% endblock content %}
